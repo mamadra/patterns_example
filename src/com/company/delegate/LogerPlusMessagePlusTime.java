@@ -3,15 +3,15 @@ package com.company.delegate;
 public class LogerPlusMessagePlusTime implements ILoger {
 
     long time;
-    String message;
+    String name;
 
-    public LogerPlusMessagePlusTime(long time, String message) {
+    public LogerPlusMessagePlusTime(long time, String name) {
         this.time = time;
-        this.message = message;
+        this.name = name;
     }
 
     @Override
-    public void loger(String name) {
+    public void loger(String message) {
         System.out.printf("%s : %s : %tc%n",name,message,time);
     }
 }

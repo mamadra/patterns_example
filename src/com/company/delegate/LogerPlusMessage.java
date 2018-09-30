@@ -1,14 +1,14 @@
 package com.company.delegate;
 
 public class LogerPlusMessage implements ILoger{
-    String message;
+    String name;
 
-    public LogerPlusMessage(String message) {
-        this.message = message;
+    public LogerPlusMessage(String name) {
+        this.name = name;
     }
 
     @Override
-    public void loger(String name) {
+    public void loger(String message) {
         System.out.printf("%s : %s%n",name,message);
     }
 }
