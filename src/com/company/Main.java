@@ -20,6 +20,7 @@ import com.company.factoryMethod.PhoneMaker;
 import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
 import com.company.prototype.Car;
+import com.company.prototype.CarFactory;
 
 import java.util.Calendar;
 
@@ -68,6 +69,9 @@ public class Main {
         Car carCopy=(Car) carOrig.copy();
         loger.loger(String.format("\t Orig %s%n\t Copy %s",carOrig.toString(),carCopy.toString()));
 
+        CarFactory carFactory=new CarFactory(new Car("Ford",220,6));
+        Car carCopyNew=carFactory.makeCopy();
+        loger.loger(String.format("CopyNew %s",carCopyNew.toString()));
 
     }
 
