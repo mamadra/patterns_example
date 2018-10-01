@@ -10,7 +10,7 @@ public class Logistick {
     Truck truck=new Truck(loger);
 
     public Logistick() {
-        loger.setLoger(new LogerPlusMessage("Facade"));
+        loger.setLoger(new LogerPlusMessage("Facade",":"));
     }
 
     public void sendProduckt(){

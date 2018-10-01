@@ -7,6 +7,10 @@ import com.company.abstractFactory.factories.XiaomiDevice;
 import com.company.abstractFactory.interfaces.IHeadphones;
 import com.company.abstractFactory.interfaces.INoteBook;
 import com.company.abstractFactory.interfaces.ISmart;
+import com.company.builder.ApplePhoneBuilder;
+import com.company.builder.Director;
+import com.company.builder.SamsungBuilder;
+import com.company.builder.SmartPhone;
 import com.company.delegate.Loger;
 import com.company.delegate.LogerPlusMessage;
 import com.company.delegate.LogerPlusMessagePlusTime;
@@ -21,43 +25,41 @@ public class Main {
     public static void main(String[] args) {
 
         Loger loger=new Loger();
-        loger.setLoger(new LogerPlusMessage("Delegate"));
+        loger.setLoger(new LogerPlusMessage("Delegate",":"));
         loger.loger("one log log plus message");
 
         loger.setLoger(new LogerPlusMessagePlusTime(System.nanoTime(),"Delegate"));
         loger.loger("two log log plus message plus time");
 
+
         Logistick logistick=new Logistick();
         logistick.sendProduckt();
-
         PhoneMaker maker=new SamsungMaker();
         ISmartPhone smartPhone=maker.makeSmartPhone();
 
-        loger.setLoger(new LogerPlusMessage("FactoryMethod"));
+        loger.setLoger(new LogerPlusMessage("FactoryMethod ",":"));
         loger.loger("smartphone="+smartPhone.getPhoneName());
-
         maker=new XiaomiMaker();
         smartPhone=maker.makeSmartPhone();
-
-        loger.setLoger(new LogerPlusMessage("FactoryMethod"));
         loger.loger("smartphone="+smartPhone.getPhoneName());
 
-        loger.setLoger(new LogerPlusMessage("AbstracktFactory"));
-
-
-        DeviceFactory factory=getFactory("HP");
-
+        loger.setLoger(new LogerPlusMessage("AbstracktFactory",":"));
+        DeviceFactory factory=getFactory("Samsung");
         ISmart phone=factory.getSmartPhone();
         INoteBook noteBook=factory.getNoteBook();
         IHeadphones headphones=factory.getHeadphone();
-
         loger.loger(phone.getName());
         phone.sendSms("hello","+71231231212");
-
         loger.loger(noteBook.getName());
         noteBook.openWebPage("google.com","chromium");
-
         headphones.playMusic();
+
+        Director director =new Director();
+        director.setBuilder(new ApplePhoneBuilder());
+        SmartPhone smartPhoneFB=director.buildeSmartPhone();
+        loger.setLoger(new LogerPlusMessage(String.format("Builder %n"),""));
+        loger.loger(smartPhoneFB.toString());
+
     }
 
     public static DeviceFactory getFactory(String a) {
