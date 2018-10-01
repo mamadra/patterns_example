@@ -19,6 +19,9 @@ import com.company.factoryMethod.ISmartPhone;
 import com.company.factoryMethod.PhoneMaker;
 import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
+import com.company.prototype.Car;
+
+import java.util.Calendar;
 
 public class Main {
 
@@ -54,11 +57,17 @@ public class Main {
         noteBook.openWebPage("google.com","chromium");
         headphones.playMusic();
 
+        loger.setLoger(new LogerPlusMessage(String.format("Builder %n"),""));
         Director director =new Director();
         director.setBuilder(new ApplePhoneBuilder());
         SmartPhone smartPhoneFB=director.buildeSmartPhone();
-        loger.setLoger(new LogerPlusMessage(String.format("Builder %n"),""));
         loger.loger(smartPhoneFB.toString());
+
+        loger.setLoger(new LogerPlusMessage(String.format("Protorype %n"),""));
+        Car carOrig=new Car("kia RIO",200,6);
+        Car carCopy=(Car) carOrig.copy();
+        loger.loger(String.format("\t Orig %s%n\t Copy %s",carOrig.toString(),carCopy.toString()));
+
 
     }
 
