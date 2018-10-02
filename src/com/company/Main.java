@@ -11,6 +11,7 @@ import com.company.builder.ApplePhoneBuilder;
 import com.company.builder.Director;
 import com.company.builder.SamsungBuilder;
 import com.company.builder.SmartPhone;
+import com.company.composite.*;
 import com.company.delegate.Loger;
 import com.company.delegate.LogerPlusMessage;
 import com.company.delegate.LogerPlusMessagePlusTime;
@@ -73,7 +74,31 @@ public class Main {
         Car carCopyNew=carFactory.makeCopy();
         loger.loger(String.format("CopyNew %s",carCopyNew.toString()));
 
+
+        compositeExample();
     }
+
+    private static void compositeExample() {
+
+        Composite compositeMyChessman=new Composite();
+        Composite compositeRivalChessman=new Composite();
+        Composite compositeChessboard =new Composite();
+
+        compositeMyChessman.addComponent(new Rook("my"));
+        compositeMyChessman.addComponent(new Knight("my"));
+        compositeMyChessman.addComponent(new Bishop("my"));
+        compositeMyChessman.addComponent(new Rook("my"));
+
+        compositeRivalChessman.addComponent(new Knight("rival"));
+        compositeRivalChessman.addComponent(new Knight("rival"));
+        compositeRivalChessman.addComponent(new Bishop("rival"));
+
+        compositeChessboard.addComponent(compositeMyChessman);
+        compositeChessboard.addComponent(compositeRivalChessman);
+
+        compositeChessboard.action();
+    }
+
 
     public static DeviceFactory getFactory(String a) {
         switch (a){
