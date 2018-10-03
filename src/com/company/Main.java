@@ -12,6 +12,10 @@ import com.company.builder.Director;
 import com.company.builder.SamsungBuilder;
 import com.company.builder.SmartPhone;
 import com.company.composite.*;
+import com.company.decorator.CopyPrintModel;
+import com.company.decorator.IModelInDB;
+import com.company.decorator.ModelCar;
+import com.company.decorator.NewLineDecorator;
 import com.company.delegate.Loger;
 import com.company.delegate.LogerPlusMessage;
 import com.company.delegate.LogerPlusMessagePlusTime;
@@ -76,6 +80,13 @@ public class Main {
 
 
         compositeExample();
+
+        decoratorExample();
+    }
+
+    private static void decoratorExample() {
+        IModelInDB modelCar=new CopyPrintModel(new NewLineDecorator(new ModelCar("ford")),5);
+        modelCar.printModel();
     }
 
     private static void compositeExample() {
@@ -98,6 +109,8 @@ public class Main {
 
         compositeChessboard.action();
     }
+
+
 
 
     public static DeviceFactory getFactory(String a) {
