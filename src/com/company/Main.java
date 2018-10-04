@@ -11,6 +11,7 @@ import com.company.builder.ApplePhoneBuilder;
 import com.company.builder.Director;
 import com.company.builder.SamsungBuilder;
 import com.company.builder.SmartPhone;
+import com.company.command.*;
 import com.company.composite.*;
 import com.company.decorator.CopyPrintModel;
 import com.company.decorator.IModelInDB;
@@ -82,6 +83,17 @@ public class Main {
         compositeExample();
 
         decoratorExample();
+
+        commandExample();
+    }
+
+    private static void commandExample() {
+        Dog dog=new Dog();
+        Human human=new Human(new StandCommand(dog),new SitCommand(dog),new LieCommand(dog));
+
+        human.standCommand();
+        human.sitCommand();
+        human.lieCommand();
     }
 
     private static void decoratorExample() {
