@@ -11,6 +11,10 @@ import com.company.builder.ApplePhoneBuilder;
 import com.company.builder.Director;
 import com.company.builder.SamsungBuilder;
 import com.company.builder.SmartPhone;
+import com.company.chainOfResponsibility.DebugLogger;
+import com.company.chainOfResponsibility.ErrorLogger;
+import com.company.chainOfResponsibility.InfoLogger;
+import com.company.chainOfResponsibility.Logger;
 import com.company.command.*;
 import com.company.composite.*;
 import com.company.decorator.CopyPrintModel;
@@ -27,6 +31,7 @@ import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
 import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
+import sun.rmi.runtime.Log;
 
 import java.util.Calendar;
 
@@ -85,6 +90,23 @@ public class Main {
         decoratorExample();
 
         commandExample();
+
+        chainOfResponsibilityExample();
+    }
+
+    private static void chainOfResponsibilityExample() {
+
+        Logger loggerError=new ErrorLogger(1);
+        Logger loggerDebug=new DebugLogger(2);
+        Logger loggerInfo=new InfoLogger(3);
+
+        loggerError.setNext(loggerDebug);
+        loggerDebug.setNext(loggerInfo);
+
+        loggerError.writeMassage("Инфо Логгер",3);
+        loggerError.writeMassage("Дебаг Логгер",2);
+        loggerError.writeMassage(" Критичная ситуация",3);
+
     }
 
     private static void commandExample() {
@@ -139,4 +161,6 @@ public class Main {
             default: throw new RuntimeException("Нет такой фирмы:"+a);
         }
     }
+
+
 }
