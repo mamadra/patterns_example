@@ -36,6 +36,9 @@ import com.company.mediator.User;
 import com.company.memento.File;
 import com.company.memento.Game;
 import com.company.memento.Save;
+import com.company.observer.JustObserver;
+import com.company.observer.MeteoStation;
+import com.company.observer.Observed;
 import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
 import sun.rmi.runtime.Log;
@@ -104,6 +107,18 @@ public class Main {
         mementoExample();
 
         mediatorExample();
+
+        observerExample();
+    }
+
+    private static void observerExample() {
+
+        MeteoStation meteoStation=new MeteoStation();
+        meteoStation.addObserver(new JustObserver());
+        meteoStation.addObserver(new JustObserver());
+        meteoStation.setParams(5,745);
+        meteoStation.setParams(15,787);
+
     }
 
     private static void mediatorExample() {
