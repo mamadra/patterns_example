@@ -29,6 +29,10 @@ import com.company.factoryMethod.ISmartPhone;
 import com.company.factoryMethod.PhoneMaker;
 import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
+import com.company.mediator.Admin;
+import com.company.mediator.JustUser;
+import com.company.mediator.TextChat;
+import com.company.mediator.User;
 import com.company.memento.File;
 import com.company.memento.Game;
 import com.company.memento.Save;
@@ -98,6 +102,28 @@ public class Main {
         chainOfResponsibilityExample();
 
         mementoExample();
+
+        mediatorExample();
+    }
+
+    private static void mediatorExample() {
+
+        TextChat chat=new TextChat();
+        User admin=new Admin(chat,"Ted");
+        User u1=new JustUser(chat,"Tod");
+        User u2=new JustUser(chat,"Tom");
+        User u3=new JustUser(chat,"Bob");
+
+        u1.setEnable(false);
+
+        chat.setAdmin(admin);
+        chat.addUser(u1);
+        chat.addUser(u2);
+        chat.addUser(u3);
+
+        u2.sendMessage("Hola");
+        admin.sendMessage("Hola");
+
     }
 
     private static void mementoExample() {
