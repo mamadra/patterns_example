@@ -29,10 +29,14 @@ import com.company.factoryMethod.ISmartPhone;
 import com.company.factoryMethod.PhoneMaker;
 import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
+import com.company.memento.File;
+import com.company.memento.Game;
+import com.company.memento.Save;
 import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
 import sun.rmi.runtime.Log;
 
+import java.lang.reflect.Field;
 import java.util.Calendar;
 
 public class Main {
@@ -92,6 +96,29 @@ public class Main {
         commandExample();
 
         chainOfResponsibilityExample();
+
+        mementoExample();
+    }
+
+    private static void mementoExample() {
+
+        Game game=new Game();
+        game.set(300,30000);
+        System.out.println(game.toString());
+        game.set(1200,120000);
+        System.out.println(game.toString());
+        File file =new File();
+        file.setSave(new Save(game.getPoint(),game.getTime()));
+        game=null;
+        try{
+            System.out.println(game.toString());
+        }catch (NullPointerException e){
+            System.out.println("Игра оконченна  game=" +e);
+        }
+        game=new Game();
+        game.load(file.getSave());
+        System.out.println(game.toString());
+
     }
 
     private static void chainOfResponsibilityExample() {
