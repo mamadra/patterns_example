@@ -43,6 +43,9 @@ import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
 import com.company.state.Cold;
 import com.company.state.Teapot;
+import com.company.templateMethod.Man;
+import com.company.templateMethod.Petya;
+import com.company.templateMethod.Vasia;
 import sun.rmi.runtime.Log;
 
 import java.lang.reflect.Field;
@@ -113,6 +116,15 @@ public class Main {
         observerExample();
 
         stateExample();
+
+        templateExample();
+    }
+
+    private static void templateExample() {
+        Man vasya=new Vasia();
+        Man petya=new Petya();
+        vasya.templateMetod();
+        petya.templateMetod();
     }
 
     private static void stateExample() {
