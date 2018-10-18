@@ -43,6 +43,9 @@ import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
 import com.company.state.Cold;
 import com.company.state.Teapot;
+import com.company.strategy.Bask;
+import com.company.strategy.Boiling;
+import com.company.strategy.Burned;
 import com.company.templateMethod.Man;
 import com.company.templateMethod.Petya;
 import com.company.templateMethod.Vasia;
@@ -118,6 +121,24 @@ public class Main {
         stateExample();
 
         templateExample();
+
+        strategyExample();
+    }
+
+    private static void strategyExample() {
+        com.company.strategy.Teapot teapot=new com.company.strategy.Teapot();
+
+        teapot.setState(new com.company.strategy.Cold());
+        teapot.doSomething();
+
+        teapot.setState(new Bask());
+        teapot.doSomething();
+
+        teapot.setState(new Boiling());
+        teapot.doSomething();
+
+        teapot.setState(new Burned());
+        teapot.doSomething();
     }
 
     private static void templateExample() {
@@ -125,6 +146,7 @@ public class Main {
         Man petya=new Petya();
         vasya.templateMetod();
         petya.templateMetod();
+        System.out.println();
     }
 
     private static void stateExample() {
