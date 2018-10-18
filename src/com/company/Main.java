@@ -41,6 +41,8 @@ import com.company.observer.MeteoStation;
 import com.company.observer.Observed;
 import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
+import com.company.state.Cold;
+import com.company.state.Teapot;
 import sun.rmi.runtime.Log;
 
 import java.lang.reflect.Field;
@@ -109,6 +111,18 @@ public class Main {
         mediatorExample();
 
         observerExample();
+
+        stateExample();
+    }
+
+    private static void stateExample() {
+        Teapot teapot =new Teapot();
+        teapot.setState(new Cold());
+        teapot.setOn(true);
+        for(int i=0;i<5;i++){
+           if (i==2) teapot.setOn(false);
+            teapot.doSomething();
+        }
     }
 
     private static void observerExample() {
