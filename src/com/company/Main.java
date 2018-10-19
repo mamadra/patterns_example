@@ -49,6 +49,7 @@ import com.company.strategy.Burned;
 import com.company.templateMethod.Man;
 import com.company.templateMethod.Petya;
 import com.company.templateMethod.Vasia;
+import com.company.visitor.*;
 import sun.rmi.runtime.Log;
 
 import java.lang.reflect.Field;
@@ -123,6 +124,25 @@ public class Main {
         templateExample();
 
         strategyExample();
+
+        visitorExample();
+    }
+
+    private static void visitorExample() {
+        IElement number=new NumberHostel();
+        IElement bed=new BedNumber();
+        IElement payment=new PaymentHostel();
+        IVisitor guest=new Guest();
+        IVisitor service=new Service();
+
+        number.accept(guest);
+        bed.accept(guest);
+        payment.accept(guest);
+
+        number.accept(service);
+        bed.accept(service);
+        payment.accept(service);
+
     }
 
     private static void strategyExample() {
