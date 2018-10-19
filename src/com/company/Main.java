@@ -29,6 +29,8 @@ import com.company.factoryMethod.ISmartPhone;
 import com.company.factoryMethod.PhoneMaker;
 import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
+import com.company.iterator.ConcretAggregator;
+import com.company.iterator.IIterator;
 import com.company.mediator.Admin;
 import com.company.mediator.JustUser;
 import com.company.mediator.TextChat;
@@ -126,6 +128,17 @@ public class Main {
         strategyExample();
 
         visitorExample();
+
+        iteratorExample();
+    }
+
+    private static void iteratorExample() {
+        ConcretAggregator c=new ConcretAggregator();
+        IIterator it=c.getIterator();
+
+        while (it.hasNext()){
+            System.out.println(it.getNext());
+        }
     }
 
     private static void visitorExample() {
