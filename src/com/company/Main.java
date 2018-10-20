@@ -48,6 +48,8 @@ import com.company.prototype.CarFactory;
 import com.company.proxy.IImage;
 import com.company.proxy.ProxyImage;
 import com.company.proxy.RealImage;
+import com.company.singleton.Run;
+import com.company.singleton.Singleton;
 import com.company.state.Cold;
 import com.company.state.Teapot;
 import com.company.strategy.Bask;
@@ -142,6 +144,27 @@ public class Main {
         proxyExample();
 
         flyweighExample();
+
+        singletonExample();
+    }
+
+    private static void singletonExample() {
+
+        final int SIZE=5000;
+        Thread t[]=new Thread[SIZE];
+
+        for (int i=0;i<SIZE;i++){
+            t[i]=new Thread(new Run());
+            t[i].start();
+        }
+        for (int i=0;i<SIZE;i++){
+            try {
+                t[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(Singleton.count);
     }
 
     private static void flyweighExample() {
