@@ -43,6 +43,9 @@ import com.company.observer.MeteoStation;
 import com.company.observer.Observed;
 import com.company.prototype.Car;
 import com.company.prototype.CarFactory;
+import com.company.proxy.IImage;
+import com.company.proxy.ProxyImage;
+import com.company.proxy.RealImage;
 import com.company.state.Cold;
 import com.company.state.Teapot;
 import com.company.strategy.Bask;
@@ -130,6 +133,13 @@ public class Main {
         visitorExample();
 
         iteratorExample();
+
+        proxyExample();
+    }
+
+    private static void proxyExample() {
+        IImage image=new ProxyImage("~/Picture/123.jpg");
+        image.display();
     }
 
     private static void iteratorExample() {
