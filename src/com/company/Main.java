@@ -73,86 +73,79 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
+        delegateExample();
+        facadeExample();
+        abstracktFactoryExample();
+        builderExample();
+        prototypeExample();
+        compositeExample();
+        decoratorExample();
+        commandExample();
+        chainOfResponsibilityExample();
+        mementoExample();
+        mediatorExample();
+        observerExample();
+        stateExample();
+        templateExample();
+        strategyExample();
+        visitorExample();
+        iteratorExample();
+        proxyExample();
+        flyweighExample();
+        singletonExample();
+        bridgeExample();
+        interpreterExample();
+    }
 
+    private static void prototypeExample() {
+        Car carOrig=new Car("kia RIO",200,6);
+        Car carCopy=(Car) carOrig.copy();
+        System.out.println(String.format("\t Orig %s%n\t Copy %s",carOrig.toString(),carCopy.toString()));
+
+        CarFactory carFactory=new CarFactory(new Car("Ford",220,6));
+        Car carCopyNew=carFactory.makeCopy();
+        System.out.println(String.format("CopyNew %s",carCopyNew.toString()));
+
+    }
+
+    private static void builderExample() {
+        Director director =new Director();
+        director.setBuilder(new ApplePhoneBuilder());
+        SmartPhone smartPhoneFB=director.buildeSmartPhone();
+        System.out.println(smartPhoneFB.toString());
+    }
+
+    private static void abstracktFactoryExample() {
+        DeviceFactory factory=getFactory("Samsung");
+        ISmart phone=factory.getSmartPhone();
+        INoteBook noteBook=factory.getNoteBook();
+        IHeadphones headphones=factory.getHeadphone();
+        System.out.println(phone.getName());
+        phone.sendSms("hello","+71231231212");
+        System.out.println(noteBook.getName());
+        noteBook.openWebPage("google.com","chromium");
+        headphones.playMusic();
+    }
+
+    private static void facadeExample() {
+        Logistick logistick=new Logistick();
+        logistick.sendProduckt();
+        PhoneMaker maker=new SamsungMaker();
+        ISmartPhone smartPhone=maker.makeSmartPhone();
+
+        System.out.println("smartphone="+smartPhone.getPhoneName());
+        maker=new XiaomiMaker();
+        smartPhone=maker.makeSmartPhone();
+        System.out.println("smartphone="+smartPhone.getPhoneName());
+    }
+
+    private static void delegateExample() {
         Loger loger=new Loger();
         loger.setLoger(new LogerPlusMessage("Delegate",":"));
         loger.loger("one log log plus message");
 
         loger.setLoger(new LogerPlusMessagePlusTime(System.nanoTime(),"Delegate"));
         loger.loger("two log log plus message plus time");
-
-
-        Logistick logistick=new Logistick();
-        logistick.sendProduckt();
-        PhoneMaker maker=new SamsungMaker();
-        ISmartPhone smartPhone=maker.makeSmartPhone();
-
-        loger.setLoger(new LogerPlusMessage("FactoryMethod ",":"));
-        loger.loger("smartphone="+smartPhone.getPhoneName());
-        maker=new XiaomiMaker();
-        smartPhone=maker.makeSmartPhone();
-        loger.loger("smartphone="+smartPhone.getPhoneName());
-
-        loger.setLoger(new LogerPlusMessage("AbstracktFactory",":"));
-        DeviceFactory factory=getFactory("Samsung");
-        ISmart phone=factory.getSmartPhone();
-        INoteBook noteBook=factory.getNoteBook();
-        IHeadphones headphones=factory.getHeadphone();
-        loger.loger(phone.getName());
-        phone.sendSms("hello","+71231231212");
-        loger.loger(noteBook.getName());
-        noteBook.openWebPage("google.com","chromium");
-        headphones.playMusic();
-
-        loger.setLoger(new LogerPlusMessage(String.format("Builder %n"),""));
-        Director director =new Director();
-        director.setBuilder(new ApplePhoneBuilder());
-        SmartPhone smartPhoneFB=director.buildeSmartPhone();
-        loger.loger(smartPhoneFB.toString());
-
-        loger.setLoger(new LogerPlusMessage(String.format("Protorype %n"),""));
-        Car carOrig=new Car("kia RIO",200,6);
-        Car carCopy=(Car) carOrig.copy();
-        loger.loger(String.format("\t Orig %s%n\t Copy %s",carOrig.toString(),carCopy.toString()));
-
-        CarFactory carFactory=new CarFactory(new Car("Ford",220,6));
-        Car carCopyNew=carFactory.makeCopy();
-        loger.loger(String.format("CopyNew %s",carCopyNew.toString()));
-
-
-        compositeExample();
-
-        decoratorExample();
-
-        commandExample();
-
-        chainOfResponsibilityExample();
-
-        mementoExample();
-
-        mediatorExample();
-
-        observerExample();
-
-        stateExample();
-
-        templateExample();
-
-        strategyExample();
-
-        visitorExample();
-
-        iteratorExample();
-
-        proxyExample();
-
-        flyweighExample();
-
-        singletonExample();
-
-        bridgeExample();
-
-        interpreterExample();
     }
 
     private static void interpreterExample() {
