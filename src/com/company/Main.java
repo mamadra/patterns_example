@@ -32,6 +32,8 @@ import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
 import com.company.flyweigh.IShape;
 import com.company.flyweigh.ShapeFactory;
+import com.company.interpreter.Context;
+import com.company.interpreter.Expression;
 import com.company.iterator.ConcretAggregator;
 import com.company.iterator.IIterator;
 import com.company.mediator.Admin;
@@ -149,6 +151,14 @@ public class Main {
         singletonExample();
 
         bridgeExample();
+
+        interpreterExample();
+    }
+
+    private static void interpreterExample() {
+        Context context=new Context();
+        Expression expression=context.evaluate("110+4+10+20+80+60-32-43-6-5-2-3-3-4-23522+34");
+        System.out.println(expression.interpret());
     }
 
     private static void bridgeExample() {
