@@ -7,6 +7,7 @@ import com.company.abstractFactory.factories.XiaomiDevice;
 import com.company.abstractFactory.interfaces.IHeadphones;
 import com.company.abstractFactory.interfaces.INoteBook;
 import com.company.abstractFactory.interfaces.ISmart;
+import com.company.bridge.*;
 import com.company.builder.ApplePhoneBuilder;
 import com.company.builder.Director;
 import com.company.builder.SamsungBuilder;
@@ -146,6 +147,13 @@ public class Main {
         flyweighExample();
 
         singletonExample();
+
+        bridgeExample();
+    }
+
+    private static void bridgeExample() {
+        CarBridge car=new Coupe(new Lada());
+        car.showDetail();
     }
 
     private static void singletonExample() {
