@@ -29,6 +29,8 @@ import com.company.factoryMethod.ISmartPhone;
 import com.company.factoryMethod.PhoneMaker;
 import com.company.factoryMethod.SamsungMaker;
 import com.company.factoryMethod.XiaomiMaker;
+import com.company.flyweigh.IShape;
+import com.company.flyweigh.ShapeFactory;
 import com.company.iterator.ConcretAggregator;
 import com.company.iterator.IIterator;
 import com.company.mediator.Admin;
@@ -58,7 +60,10 @@ import com.company.visitor.*;
 import sun.rmi.runtime.Log;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -135,6 +140,29 @@ public class Main {
         iteratorExample();
 
         proxyExample();
+
+        flyweighExample();
+    }
+
+    private static void flyweighExample() {
+
+        ShapeFactory shapeFactory=new ShapeFactory();
+        List<IShape> shapes=new ArrayList<>();
+
+        shapes.add(shapeFactory.getShape("круг"));
+        shapes.add(shapeFactory.getShape("квадрат"));
+        shapes.add(shapeFactory.getShape("круг"));
+        shapes.add(shapeFactory.getShape("круг"));
+        shapes.add(shapeFactory.getShape("точка"));
+        shapes.add(shapeFactory.getShape("квадрат"));
+        shapes.add(shapeFactory.getShape("точка"));
+
+        Random random=new Random();
+        for (IShape shape:shapes){
+            int x=random.nextInt(100);
+            int y=random.nextInt(100);
+            shape.draw(x,y);
+        }
     }
 
     private static void proxyExample() {
