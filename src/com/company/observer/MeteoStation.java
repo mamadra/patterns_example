@@ -6,7 +6,7 @@ import java.util.List;
 public class MeteoStation implements Observed {
     int temp;
     int press;
-    List<Observer> observers=new ArrayList<>();
+    List<Observer> observers = new ArrayList<>();
 
 
     @Override
@@ -21,14 +21,14 @@ public class MeteoStation implements Observed {
 
     @Override
     public void notifyObservers() {
-        for(Observer o:observers){
-            o.handleEvent(temp,press);
+        for (Observer o : observers) {
+            o.handleEvent(temp, press);
         }
     }
 
-    public void setParams(int t,int p){
-        temp=t;
-        press=p;
+    public void setParams(int t, int p) {
+        temp = t;
+        press = p;
         notifyObservers();
     }
 }

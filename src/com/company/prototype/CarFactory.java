@@ -7,11 +7,11 @@ public class CarFactory {
         setPrototype(car);
     }
 
-    public void setPrototype(Car car){
-        this.car=car;
+    public void setPrototype(Car car) {
+        this.car = car;
     }
 
-    public Car makeCopy(){
+    public Car makeCopy() {
         return (Car) car.copy();
     }
 }

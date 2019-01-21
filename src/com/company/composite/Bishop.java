@@ -10,6 +10,6 @@ public class Bishop implements IChessman {
 
     @Override
     public void action() {
-        System.out.println(fraction+" Bishop action");
+        System.out.println(fraction + " Bishop action");
     }
 }

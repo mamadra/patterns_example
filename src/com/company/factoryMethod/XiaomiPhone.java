@@ -1,6 +1,6 @@
 package com.company.factoryMethod;
 
-public class XiaomiPhone implements ISmartPhone{
+public class XiaomiPhone implements ISmartPhone {
 
 
     @Override

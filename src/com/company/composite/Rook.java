@@ -10,6 +10,6 @@ public class Rook implements IChessman {
 
     @Override
     public void action() {
-        System.out.println(fraction+" rook action");
+        System.out.println(fraction + " rook action");
     }
 }

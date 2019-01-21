@@ -10,6 +10,6 @@ public class Knight implements IChessman {
 
     @Override
     public void action() {
-        System.out.println(fraction +" Knight action");
+        System.out.println(fraction + " Knight action");
     }
 }

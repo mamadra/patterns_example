@@ -2,13 +2,13 @@ package com.company.adapter;
 
 public class ModelCAdapterModelB extends ModelB implements IModelC {
 
-    ModelB modelB=new ModelB();
+    ModelB modelB = new ModelB();
 
     @Override
     public void xAction() {
         actionX();
 //        OR
-    modelB.actionX();
+        modelB.actionX();
     }
 
     @Override

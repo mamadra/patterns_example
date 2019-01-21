@@ -6,7 +6,7 @@ public class Admin extends User {
         super(chat, name);
     }
 
-    public void getMessage(String message){
-        System.out.println("Админ "+getName()+" получает сообщение :"+message);
+    public void getMessage(String message) {
+        System.out.println("Админ " + getName() + " получает сообщение :" + message);
     }
 }

@@ -16,7 +16,7 @@ public class Teapot {
         this.on = on;
     }
 
-    public void doSomething(){
+    public void doSomething() {
         state.doSomething(this);
     }
 }

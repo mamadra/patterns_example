@@ -7,7 +7,7 @@ public class Teapot {
         this.state = state;
     }
 
-    public void doSomething(){
+    public void doSomething() {
         state.doSomething();
     }
 }

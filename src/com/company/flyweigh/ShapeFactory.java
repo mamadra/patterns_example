@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ShapeFactory {
-    private static final Map<String,IShape> shapes=new HashMap<>();
+    private static final Map<String, IShape> shapes = new HashMap<>();
 
-    public IShape getShape(String shapeName){
-        IShape shape=shapes.get("shapeName");
-        if(shape==null){
+    public IShape getShape(String shapeName) {
+        IShape shape = shapes.get("shapeName");
+        if (shape == null) {
             switch (shapeName) {
                 case "круг":
                     shape = new Circle();
@@ -20,7 +20,7 @@ public class ShapeFactory {
                     shape = new Point();
                     break;
             }
-        shapes.put(shapeName,shape);
+            shapes.put(shapeName, shape);
         }
         return shape;
     }

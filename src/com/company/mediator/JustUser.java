@@ -6,7 +6,7 @@ public class JustUser extends User {
         super(chat, name);
     }
 
-    public void getMessage(String message){
-        System.out.println("Юзер  "+getName()+" получает сообщение :"+message);
+    public void getMessage(String message) {
+        System.out.println("Юзер  " + getName() + " получает сообщение :" + message);
     }
 }

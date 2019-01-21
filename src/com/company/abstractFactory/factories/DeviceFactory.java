@@ -7,6 +7,8 @@ import com.company.abstractFactory.interfaces.ISmart;
 public interface DeviceFactory {
 
     IHeadphones getHeadphone();
+
     ISmart getSmartPhone();
+
     INoteBook getNoteBook();
 }

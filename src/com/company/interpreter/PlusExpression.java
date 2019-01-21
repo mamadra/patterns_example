@@ -1,6 +1,6 @@
 package com.company.interpreter;
 
-public class PlusExpression implements Expression{
+public class PlusExpression implements Expression {
 
     Expression left;
     Expression right;
@@ -12,6 +12,6 @@ public class PlusExpression implements Expression{
 
     @Override
     public int interpret() {
-        return left.interpret()+right.interpret();
+        return left.interpret() + right.interpret();
     }
 }

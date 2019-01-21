@@ -12,8 +12,8 @@ public class Truck {
         this.loger = loger;
     }
 
-    public void loadingTruck(Products products){
-        if(products.isProducktReady()){
+    public void loadingTruck(Products products) {
+        if (products.isProducktReady()) {
             loger.loger("Загружаем продукты");
         } else {
             loger.loger("Продукты не готовы. Ожидаем");

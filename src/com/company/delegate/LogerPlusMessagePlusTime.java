@@ -12,6 +12,6 @@ public class LogerPlusMessagePlusTime implements ILoger {
 
     @Override
     public void loger(String message) {
-        System.out.printf("%s : %s : %tc%n",name,message,time);
+        System.out.printf("%s : %s : %tc%n", name, message, time);
     }
 }

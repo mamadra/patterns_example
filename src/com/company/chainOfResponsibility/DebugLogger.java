@@ -7,6 +7,6 @@ public class DebugLogger extends Logger {
 
     @Override
     void write(String message) {
-        System.out.println("DEBUG : "+message);
+        System.out.println("DEBUG : " + message);
     }
 }

@@ -10,6 +10,6 @@ public class SamsungNoteBook implements INoteBook {
 
     @Override
     public void openWebPage(String urlPage, String nameApp) {
-        System.out.printf("открытие страницы %s в браузере %s %n",urlPage,nameApp);
+        System.out.printf("открытие страницы %s в браузере %s %n", urlPage, nameApp);
     }
 }

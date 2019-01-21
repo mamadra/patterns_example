@@ -7,6 +7,6 @@ public class ErrorLogger extends Logger {
 
     @Override
     void write(String message) {
-        System.out.println("ERROR : "+message);
+        System.out.println("ERROR : " + message);
     }
 }

@@ -9,11 +9,11 @@ public class RealImage implements IImage {
     }
 
     private void load() {
-        System.out.println("LOAD ..... "+file);
+        System.out.println("LOAD ..... " + file);
     }
 
     @Override
     public void display() {
-        System.out.println("DISPLAY "+file);
+        System.out.println("DISPLAY " + file);
     }
 }

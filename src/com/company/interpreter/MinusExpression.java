@@ -11,6 +11,6 @@ public class MinusExpression implements Expression {
 
     @Override
     public int interpret() {
-        return left.interpret()-right.interpret();
+        return left.interpret() - right.interpret();
     }
 }

@@ -7,23 +7,23 @@ public class SmartPhone implements ISmartPhone {
 
     @Override
     public void setName(String name) {
-        this.name=name;
+        this.name = name;
     }
 
     @Override
     public void setOperSystem(OS os) {
-        this.operationSystem=os;
+        this.operationSystem = os;
     }
 
     @Override
     public void setROM(int gbROM) {
-        this.gbROM=gbROM;
+        this.gbROM = gbROM;
     }
 
     @Override
     public String toString() {
         return String.format("SmartPhone name = %s ; %n" +
                 "Operation System = %s ; %n" +
-                "ROM = %d ; %n",name,operationSystem,gbROM);
+                "ROM = %d ; %n", name, operationSystem, gbROM);
     }
 }

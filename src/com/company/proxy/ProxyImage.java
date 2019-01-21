@@ -11,8 +11,8 @@ public class ProxyImage implements IImage {
 
     @Override
     public void display() {
-        if (image==null){
-            image=new RealImage(file);
+        if (image == null) {
+            image = new RealImage(file);
         }
         image.display();
     }

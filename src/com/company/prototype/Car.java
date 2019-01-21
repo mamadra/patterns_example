@@ -22,7 +22,7 @@ public class Car implements Copyable {
 
     @Override
     public Object copy() {
-        Car car=new Car(name,maxSpeed,countStepTransmision);
+        Car car = new Car(name, maxSpeed, countStepTransmision);
         return car;
     }
 }

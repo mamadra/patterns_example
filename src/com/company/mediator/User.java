@@ -1,9 +1,9 @@
 package com.company.mediator;
 
 abstract public class User {
-   private Chat chat;
-   private String name;
-   private boolean isEnable=true;
+    private Chat chat;
+    private String name;
+    private boolean isEnable = true;
 
     public User(Chat chat, String name) {
         this.chat = chat;
@@ -22,9 +22,10 @@ abstract public class User {
         return name;
     }
 
-    public void sendMessage(String message){
-        chat.sednMessage(message,this);
+    public void sendMessage(String message) {
+        chat.sednMessage(message, this);
     }
+
     abstract void getMessage(String message);
 
     @Override

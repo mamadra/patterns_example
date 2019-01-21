@@ -11,13 +11,15 @@ public class Human {
         this.lie = lieCommand;
     }
 
-    public void standCommand(){
+    public void standCommand() {
         stand.execute();
     }
-    public void sitCommand(){
+
+    public void sitCommand() {
         sit.execute();
     }
-    public void lieCommand(){
+
+    public void lieCommand() {
         lie.execute();
     }
 }

@@ -5,7 +5,7 @@ public class Game {
     int time;
 
     public Game() {
-       new  Game(0,0);
+        new Game(0, 0);
     }
 
     public Game(int point, int time) {
@@ -21,19 +21,19 @@ public class Game {
         return time;
     }
 
-    public void set(int point,int time){
-        this.point=point;
-        this.time=time;
+    public void set(int point, int time) {
+        this.point = point;
+        this.time = time;
     }
 
 
-    public void load(Save save){
-        point=save.getPoint();
-        time=save.getTime();
+    public void load(Save save) {
+        point = save.getPoint();
+        time = save.getTime();
     }
 
-    public Save save(){
-        return new Save(point,time);
+    public Save save() {
+        return new Save(point, time);
     }
 
     @Override

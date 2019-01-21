@@ -7,6 +7,6 @@ public class InfoLogger extends Logger {
 
     @Override
     void write(String message) {
-        System.out.println("INFO : "+message);
+        System.out.println("INFO : " + message);
     }
 }

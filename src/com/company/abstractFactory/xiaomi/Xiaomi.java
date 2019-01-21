@@ -10,6 +10,6 @@ public class Xiaomi implements ISmart {
 
     @Override
     public void sendSms(String message, String number) {
-        System.out.printf("отправка сообщения %s на номер %s %n",message,number);
+        System.out.printf("отправка сообщения %s на номер %s %n", message, number);
     }
 }

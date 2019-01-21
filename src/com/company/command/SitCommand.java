@@ -1,7 +1,7 @@
 package com.company.command;
 
 public class SitCommand implements ICommand {
-   Dog dog;
+    Dog dog;
 
     public SitCommand(Dog dog) {
         this.dog = dog;
